@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CsvFileAttributes">
+    <option name="attributeMap">
+      <map>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\core\tests\data\umath-validation-set-cos.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\core\tests\data\umath-validation-set-exp.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\core\tests\data\umath-validation-set-log.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\core\tests\data\umath-validation-set-sin.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\mt19937-testset-1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\mt19937-testset-2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\pcg64-testset-1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\pcg64-testset-2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\pcg64dxsm-testset-1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\pcg64dxsm-testset-2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\philox-testset-1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\philox-testset-2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\sfc64-testset-1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\random\tests\data\sfc64-testset-2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\Work\data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\Backup\QHO426_S_System\data\sol_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\New_Start_8thAug21\qho426-new\YaroslavBasha\pokemon_database.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\New_Start_8thAug21\qho426-new\YaroslavBasha\sol_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\New_Start_8thAug21\qho426-new\data\files\txt\generated.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\New_Start_8thAug21\qho426-new\visual\subplots\temps.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\New_Start_8thAug21\qho426-new\visual\subplots\titanic.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="D:\Shakil\OneDrive - Solent University\QHO426\Pokemon_Project\pokemon_database.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\sol_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\sol_data1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\nba.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\sol_data1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

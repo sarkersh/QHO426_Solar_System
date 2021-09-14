@@ -1,0 +1,10 @@
+cycler==0.10.0
+kiwisolver==1.3.1
+matplotlib==3.3.3
+numpy==1.19.39      (A powerful N-dimensional array object,sophisticated (broadcasting) functions,
+                tools for integrating C/C++ and Fortran code and seful linear algebra, Fourier transform,
+                and random number capabilities and many more)
+Pillow==8.0.1 (The Python Imaging Library adds image processing capabilities to your Python interpreter.)
+pyparsing==2.4.7
+python-dateutil==2.8.1
+six==1.15.0

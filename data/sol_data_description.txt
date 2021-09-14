@@ -1,0 +1,31 @@
+eName - string - the name of the object
+isPlanet - boolean - is the object a planet (this includes the five dwarf planets)
+semimajorAxis - integer - mean orbital distance in km
+perihelion - integer - closest distance from the Sun during its orbit
+aphelion - integer - furthest distance from the Sun during its orbit
+eccentricity - float - ratio of perihelion to aphelion
+inclination - float - difference in angle between body's orbit and the ecliptic
+density - float - average density of the body
+gravity - float - surface gravity, measures in m/s^2
+escape - integer - escape velocity at surface level
+meanRadius - float - average total radius
+equaRadius - float - average equatorial radius
+polarRadius - float - average polar radius
+flattening - float - ratio of equatorial radius to polar radius
+dimension - string - approximate spatial dimensions of irregular shaped objects
+sideralOrbit - float - orbital period in Earth days
+sideralRotation - float - rotational period in hours
+discoveryDate - date - date of discovery, this is left blank for any objects that were known since antiquity
+mass_kg - integer - total estimated mass of object in kg
+volume - integer - approximate volume in km^3
+orbit_type - class - either primary; orbites the Sun, or secondary; orbits a planet
+orbits - class - the planet that the body orbits. If it does not orbit a planet then it is NA
+bondAlbedo - float - Bond albedo, portion of light/energy that get reflected by the surface
+geomAlbedo - float - Geometric albedo, modified reflective metric for spherical objects which, because of opposition effects, can be greater than 1
+RV_abs - float - radial velocity of Sun due to object's gravitational pull
+p_transit - float - probability that a transit will be observable
+transit_visibility - float - angle from the ecliptic that a transit will be visible
+transit_depth - float - portion of Sun's energy that is blocked during transit
+massj - integer - mass compared to Jupiter
+semimajorAxis_AU - integer - orbital radius in Astronomical Units
+grav_int - gravitational interaction with the Sun
