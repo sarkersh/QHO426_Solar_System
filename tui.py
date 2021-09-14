@@ -63,6 +63,31 @@ def menu():
         #     ans = None
         # else:
         #     print("\n Not Valid Choice Try again")
+    # Tutor Replit:
+    # print("Main Menu")
+    #
+    # usr = input("\nLoad Data\nProcess Data\nVisualise Data\nSave Data\nExit\n\nPlease enter your choice as displayed: ")
+    #
+    # if (usr == "Load Data"):
+    #     i = 1
+    #
+    # elif (usr == "Process Data"):
+    #     i = 2
+    #
+    # elif (usr == "Visualise Data"):
+    #     i = 3
+    #
+    # elif (usr == "Save Data"):
+    #     i = 4
+    #
+    # elif (usr == "Exit"):
+    #     return 0
+    #
+    # else:
+    #     print("Invalid Choice!")
+    #     return None
+    #
+    # return i
 
 
 #menu()
@@ -158,6 +183,12 @@ def source_data_path():
     #             , print("Path location", "\"", os.path.realpath('data\sol_data.csv'), "\"")
     #         print("Path contains: ", os.listdir('data'))
     #         source_data_path()
+    # Tutor replit:
+    # path = input("Please enter a file path for the data file:\n")
+    #
+    # if path.endswith(".csv"):
+    #     return path
+    # return None
 
 
 # www.guru99.com. (n.d.). Python Check If File or Directory Exists. [online] Available at:https://www.guru99.com/python-check-if-file-exists.html.
@@ -372,12 +403,12 @@ def list_categories(categories):
     :return: Does not return anything
     """
     # TODO: Your code here
-    #d = {"fruits": "apple", "shoe": "addidas"}
-    for key, value in categories.items():
+    dict = {"fruits": "apple", "shoe": "addidas"}
+    for key, value in dict.items():
         print(key, ' : ', value)
 
 
-list_categories("categories")
+#list_categories("dict")
 
 
 def gravity_range():
