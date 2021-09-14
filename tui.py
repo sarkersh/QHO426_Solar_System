@@ -347,19 +347,19 @@ def list_entities(entities, cols=[]):
     :return: Does not return anything
     """
     # TODO: Your code here
-
-    if len(cols) > 0:
-        list = [entities[z] for z in cols]
-        print(list)
+    for entity in entities:
+        if len(cols) > 0:
+            list = [entities[z] for z in cols]
+            print(list)
     else:
         print(entities)
     return
 
 
-# list_entities(['Earth', True, 9.8, 0, 8], [])
+#list_entities(['Earth', True, 9.8, 0, 8], [0,1])
 
 
-def list_categories():
+def list_categories(categories):
     """
     Task 12: Display the contents of the dictionary categories.
 
@@ -372,12 +372,12 @@ def list_categories():
     :return: Does not return anything
     """
     # TODO: Your code here
-    d = {"fruits": "apple", "shoe": "addidas"}
-    for key, value in d.items():
+    #d = {"fruits": "apple", "shoe": "addidas"}
+    for key, value in categories.items():
         print(key, ' : ', value)
 
 
-# list_categories()
+list_categories("categories")
 
 
 def gravity_range():
