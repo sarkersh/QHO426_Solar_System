@@ -108,6 +108,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="D:\Backup\QHO426\QHO426\Data\sol_data1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="D:\Shakil\OneDrive - Solent University\QHO426\Backup\QHO426_S_System\data\sol_data.csv">
           <value>
             <Attribute>
@@ -158,27 +165,6 @@
           </value>
         </entry>
         <entry key="\data\sol_data.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\sol_data1.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\nba.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\sol_data1.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
