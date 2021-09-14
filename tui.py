@@ -301,6 +301,7 @@ def list_entity(entity, cols=[]):
 
 
 def list_entities(entities, cols=[]):
+
     """
     Task 11: Display each entity in entities. Only the data for the specified column indexes will be displayed.
     If no column indexes have been specified, then all the data for an entity will be displayed.
@@ -322,13 +323,15 @@ def list_entities(entities, cols=[]):
     :return: Does not return anything
     """
     # TODO: Your code here
+    if (len(cols) > 0):
 
-    if len(cols) > 0:
-        list = [entities[z] for z in cols]
-        print(list)
-    else:
-        print(entities)
-    return
+
+    # if len(cols) > 0:
+    #     list = [entities[z] for z in cols]
+    #     print(list)
+    # else:
+    #     print(entities)
+    # return
 
 
 # list_entities(['Earth', True, 9.8, 0, 8], [])
