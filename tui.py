@@ -288,20 +288,44 @@ def list_entity(entity, cols=[]):
     :param cols: A list of integer values that represent column indexes
     :return: does not return anything
     """
+    # Week 8.4 - More Gremlins.txt
+    # def list_entity(entity, cols=[]):
+    #     if len(cols) > 0:
+    #         #list_b = [entity[a] for a in cols]
+    #         list_b = []
+    #         for z in cols:
+    #             list_b.append(entity[z])
+    #         print(list_b)
+    #     else:
+    #         print(entity)
+    #     return
+    # list_entity(['Earth', True, 9.8, 5], [0, 2, 3])
     # TODO: Your code here
-    if len(cols) > 0:
-        list = [entity[z] for z in cols]
+    if (len(cols) > 0):
+        le = len(entity)
+        list = []
+        for z in cols:
+            if (z >= le):
+                continue
+            else:
+                list.append(entity[z])
         print(list)
     else:
         print(entity)
     return
 
-
-# list_entity(['Earth', True, 9.8, 0, 8], [0, 4])
+#     if len(cols) > 0:
+#         list = [entity[z] for z in cols]
+#         print(list)
+#     else:
+#         print(entity)
+#     return
+#
+#
+#list_entity(['Earth', True, 9.8, 0, 8], [0,5])
 
 
 def list_entities(entities, cols=[]):
-
     """
     Task 11: Display each entity in entities. Only the data for the specified column indexes will be displayed.
     If no column indexes have been specified, then all the data for an entity will be displayed.
@@ -323,15 +347,13 @@ def list_entities(entities, cols=[]):
     :return: Does not return anything
     """
     # TODO: Your code here
-    if (len(cols) > 0):
 
-
-    # if len(cols) > 0:
-    #     list = [entities[z] for z in cols]
-    #     print(list)
-    # else:
-    #     print(entities)
-    # return
+    if len(cols) > 0:
+        list = [entities[z] for z in cols]
+        print(list)
+    else:
+        print(entities)
+    return
 
 
 # list_entities(['Earth', True, 9.8, 0, 8], [])
