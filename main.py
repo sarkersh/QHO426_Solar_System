@@ -9,8 +9,6 @@ import visual
 # TODO: Your code here
 records = []
 
-
-
 def run():
     # Task 19: Call the function welcome of the module tui.
     # This will display our welcome message when the program is executed.
@@ -39,7 +37,7 @@ def run():
         # TODO: Your code here
         if (menu_options == 1):
             # Display the start message
-            tui.started("loading")
+            tui.started("Data loading")
             # Get file path
             filepath = tui.source_data_path()
             # Load data to records
@@ -55,7 +53,7 @@ def run():
                 except:
                     print("The file dose not exist!")
             # Display complete message
-            tui.completed("Loading")
+            tui.completed("Data Loading")
         #     global records
         #     tui.started("Data loading")
         #     tui.source_data_path()
@@ -135,6 +133,131 @@ def run():
         #       - Use the appropriate function in the module tui to indicate that the orbit summary process has
         #       completed.
         # TODO: Your code here
+        if(menu_options == 2):
+            tui.started("The data processing")
+            # If records is empty
+            if (len(records) != 0):
+                process_option = tui.process_type()
+                # If the user selected the option to retrieve an entity
+                if (process_option == 1):
+                    tui.started('The entity retrieval process')  # start message
+                    # find the entity in records
+                    specifiedEntity = tui.entity_name()
+                    bFindEntity = False
+                    findRecord = []
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if (recordDetailList[0] == specifiedEntity):
+                            bFindEntity = True
+                            findRecord = recordDetailList
+                            break
+                        # display the record including user entity
+                        if (bFindEntity == True):
+                            cols = []
+                            tui.list_entity(findRecord, cols)
+                        else:
+                            print("The entity does not exist!")
+                        # Complete message
+                        tui.completed("The entity retrieval process")
+                # If the user selected the option to retrieve an entity's details
+                if(process_option == 2):
+                    tui.started('The entity details retrieval process')
+                    # get entity and cols from user input
+                    specifiedEntity, cols = tui.entity_details()
+                    # find the entity in records again
+                    bFindEntity = False
+                    findRecord = []
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if (recordDetailList[0] == specifiedEntity):
+                            bFindEntity = True
+                            findRecord = recordDetailList
+                            break
+                    # display the entity details in cols
+                    if (bFindEntity == True):
+                        tui.list_entity(findRecord, cols)
+                    else:
+                        print("The entity does no exist!")
+                    tui.completed("The entity details retrieval process")
+                # If the user selected the option to categorise entities by their type
+                if process_option == 3:
+                    tui.started("The entity type categorisation process")
+                    # get planet entities and non-planet entities in records
+                    planetsList = []
+                    nonPlanetsList = []
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if recordDetailList[1] == 'TRUE':
+                            planetsList.append(recordDetailList[0])
+                        if recordDetailList[1] == 'FALSE':
+                            nonPlanetsList.append(recordDetailList[0])
+                    # create dic param category
+                    category = {
+                        'planets': planetsList,
+                        'non-planets': nonPlanetsList
+                    }
+                    # display category
+                    tui.list_categories(category)
+                    tui.completed("The entity type categorisation process")
+                # If the user selected the option to categorise entities by their gravity
+                if process_option == 4:
+                    tui.started('The categorisation by entity gravity process')
+                    # get tupe gravity_range by user input
+                    tupleGravityRange = tui.gravity_range()
+                    # get lower and medium, high entities in records
+                    lowerList = []
+                    mediumList = []
+                    highList = []
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if float(recordDetailList[8]) < tupleGravityRange[0]:
+                            lowerList.append(recordDetailList[0])
+                        if float(recordDetailList[8]) >= tupleGravityRange[0] and float(recordDetailList[8]) <= \
+                                tupleGravityRange[1]:
+                            mediumList.append(recordDetailList[0])
+                        if float(recordDetailList[8]) > tupleGravityRange[1]:
+                            highList.append(recordDetailList[0])
+                    # create dic param category
+                    category = {
+                        'lower': lowerList,
+                        'medium': mediumList,
+                        'high': highList
+                    }
+                    # display category
+                    tui.list_categories(category)
+
+                    tui.completed('The categorisation by entity gravity process')
+                # If the user selected the option to generate an orbit summary
+                if process_option == 5:
+                    tui.started('The orbit summary process')
+                    # get entities by user input
+                    entityNameList = tui.orbits()
+                    # get name of dict (small , large)
+                    name_of_dict = {}
+                    for entity in entityNameList:  # loop each entity
+                        smallList = []
+                        largeList = []
+                        for record in records:  # find the orbit entity in records and divide into small and large
+                            recordDetailList = record.split(",")
+                            if (recordDetailList[21] == entity):
+                                if (float(recordDetailList[10]) < 100):
+                                    smallList.append(recordDetailList[0])
+                                else:
+                                    largeList.append(recordDetailList[0])
+                        # create orbit entities category
+                        category = {
+                            "small": smallList,
+                            "large": largeList
+                        }
+                        # insert category to name_of_dict param
+                        name_of_dict[entity] = category
+                    # display orbit entities
+                    tui.list_categories(name_of_dict)
+                    tui.completed('The orbit summary process')
+
+                tui.completed('The data processing')
+            else:
+                print("Records is empty! Please load data")
 
         # Task 23: Check if the user selected the option for visualising data.  If so, then do the following:
         # - Use the appropriate function in the module tui to indicate that the data visualisation operation

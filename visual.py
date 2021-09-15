@@ -148,12 +148,12 @@ def orbits(summary):
     #
     # # Show the plot
     # plt.show()
-    lst1 = summary["orbited planet"]["small"]
-    lst2 = summary["orbited planet"]["large"]
-    plt.text("small", len(lst1))
-    plt.text("large", len(lst2))
-
-    print(summary["orbited planet"])
+    # lst1 = summary["orbited planet"]["small"]
+    # lst2 = summary["orbited planet"]["large"]
+    # plt.text("small", len(lst1))
+    # plt.text("large", len(lst2))
+    #
+    # print(summary["orbited planet"])
 
 orbits('summary')
 def gravity_animation(categories):
