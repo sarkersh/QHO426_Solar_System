@@ -673,6 +673,7 @@ def save():
             return None
     except:
         return None
+    # The task require 'return None' at this function and then the suitable error message should be displayed by the 'None' value in main.py
     #     ans = input("\t\tWhat would you like to do?:- ")
     #     if ans == "Export as JSON":
     #         print("\n\t\t1"), print("\t\tData Exporting as JSON Started"), print("\t\tData Exporting as JSON Completed")
