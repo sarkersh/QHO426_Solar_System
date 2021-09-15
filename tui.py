@@ -494,7 +494,14 @@ def gravity_range():
     listGravityRange = [minGravity, maxGravity]
     tupleGravityRange = tuple(listGravityRange)
     return tupleGravityRange
-
+    # Cousin code:
+    # lowerInp = input("Enter lower limit for gravity :")
+    # upperInp = input("Enter upper limit for gravity :")
+    # lst = []
+    # while float(lowerInp) < float(upperInp):
+    #     lst.append(float("{:.2f}".format(float(lowerInp))))
+    #     lowerInp = float(lowerInp) + 0.1
+    # return lst
 
     # t = tuple()
     # n = int(input("Total number of values in tuple:- "))
