@@ -37,21 +37,39 @@ def run():
         # - Read each line from the CSV file and add it to the list 'records'. You should appropriately handle the case
         # where the file cannot be found
         # TODO: Your code here
-        if menu_options == "Load Data":
-            global records
-            tui.started("Data loading")
-            tui.source_data_path()
-        with open("data\sol_data.csv") as f:
-            for line in f:
-                print(line)
-        tui.completed("data processed")
-        with open("data\sol_data.csv") as f1:
-            #f1.readline()
-            records.append(f1.readline())
-            print(records)
-            tui.completed("Load Data")
-            for line in f1:
-                print(line.split(",")[14])
+        if (menu_options == 1):
+            # Display the start message
+            tui.started("loading")
+            # Get file path
+            filepath = tui.source_data_path()
+            # Load data to records
+            if (filepath != None):
+                try:    # If doesn't exist
+                    f = open(filepath)
+                    firstline = False
+                    for line in f:
+                        if (firstline == False):
+                            firstline = True
+                            continue
+                        records.append(line)
+                except:
+                    print("The file dose not exist!")
+            # Display complete message
+            tui.completed("Loading")
+        #     global records
+        #     tui.started("Data loading")
+        #     tui.source_data_path()
+        # with open("data\sol_data.csv") as f:
+        #     for line in f:
+        #         print(line)
+        # tui.completed("data processed")
+        # with open("data\sol_data.csv") as f1:
+        #     #f1.readline()
+        #     records.append(f1.readline())
+        #     print(records)
+        #     tui.completed("Load Data")
+        #     for line in f1:
+        #         print(line.split(",")[14])
 
         # Task 22: Check if the user selected the option for processing data.  If so, then do the following:
         # - Use the appropriate function in the module tui to display a message to indicate that the data processing
@@ -183,12 +201,14 @@ def run():
         # Task 29: Check if the user selected the option for exiting.  If so, then do the following:
         # break out of the loop
         # TODO: Your code here
-        tui.completed("The program")
-        break
+        if (menu_options == 5):
+            break
         # Task 30: If the user selected an invalid option then use the appropriate function of the module tui to
         # display an error message
         # TODO: Your code here
-        tui.error("Invalid option. Please try again.")
+        # Display an error message
+        if (menu_options == None):
+            tui.error("Select a correct menu option.")
 
 
 if __name__ == "__main__":

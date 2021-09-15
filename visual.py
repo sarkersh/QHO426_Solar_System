@@ -76,6 +76,25 @@ def entities_bar(categories):
     :param categories: A dictionary with entities categorised into 'low', 'medium' and 'high' gravity
     :return: Does not return anything
     """
+    le = len(categories)
+    X = np.arange(le)
+    Y = []
+    totalcount = 0
+    for col in categories:
+        lencol = len(categories[col])
+        Y.append(lencol)
+        totalcount += lencol
+
+    plt.xticks([])
+    plt.yticks([])
+    plt.bar(X, Y, facecolor='#9999ff', edgecolor='white')
+    count = 0
+    for x, y, col in zip(X, Y, categories):
+        plt.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va='bottom')
+        plt.text(x + 0.4, 0, col, ha='center', va='top')
+
+    plt.title("Entities bar")
+    plt.show()
     # X = list(df.iloc[:, 0])
     # Y = list(df.iloc[:, 8])
     # plt.bar(X, Y, color='g')
@@ -94,7 +113,9 @@ def entities_bar(categories):
 #         z += [len(categories[i])]
 #     plt.bar(label, z)
 #     plt.show()
-#
+
+
+
 # entities_bar('categories')
 
 
@@ -134,7 +155,7 @@ def orbits(summary):
 
     print(summary["orbited planet"])
 
-#orbits('summary')
+orbits('summary')
 def gravity_animation(categories):
     """
     Task 27: Display an animation of "low", "medium" and "high" gravities.
@@ -145,16 +166,33 @@ def gravity_animation(categories):
     :param categories: A dictionary containing "low", "medium" and "high" gravity entities
     :return: Does not return anything
     """
-    X = list(df.iloc[:, 0])
-    Y = list(df.iloc[:, 8])
+    # X = list(df.iloc[:, 0])
+    # Y = list(df.iloc[:, 8])
+    #
+    # # Plot the data using bar() method
+    # plt.plot(X, Y, color='g')
+    # plt.title("gravity")
+    # plt.xlabel("entity name")
+    # plt.ylabel("gravity")
+    #
+    # # Show the plot
+    # plt.show()
 
-    # Plot the data using bar() method
-    plt.plot(X, Y, color='g')
-    plt.title("gravity")
-    plt.xlabel("entity name")
-    plt.ylabel("gravity")
+    fig, ax = plt.subplots()
 
-    # Show the plot
-    plt.show()
-#gravity_animation('categories')
+    x = categories["low"]
+    line, = ax.plot("np.sin(x)low", x)
+
+    def init():
+        line.set_ydata([np.nan] * len(x))
+        return line,
+
+    def animate(i):
+        line.set_ydata(np.sin(x + i / 100))
+        return line,
+
+    ani = animation.FuncAnimation(
+        fig, animate, init_func=init, interval=2, blit=True, save_count=50)
+
+gravity_animation('categories')
 
