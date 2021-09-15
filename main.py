@@ -3,6 +3,8 @@
 import csv
 import tui
 import visual
+from abc import ABC, abstractmethod
+import json
 
 # Task 18: Create an empty list named 'records'.
 # This will be used to store the date read from the source data file.
@@ -50,6 +52,7 @@ def run():
                             firstline = True
                             continue
                         records.append(line)
+                    f.close()
                 except:
                     print("The file dose not exist!")
             # Display complete message
@@ -254,11 +257,9 @@ def run():
                     # display orbit entities
                     tui.list_categories(name_of_dict)
                     tui.completed('The orbit summary process')
-
                 tui.completed('The data processing')
             else:
                 print("Records is empty! Please load data")
-
         # Task 23: Check if the user selected the option for visualising data.  If so, then do the following:
         # - Use the appropriate function in the module tui to indicate that the data visualisation operation
         # has started.
@@ -307,7 +308,119 @@ def run():
         #       - Use the appropriate function in the module tui to indicate that the gravity animation visualisation
         #       process has completed.
         # TODO: Your code here
+        if menu_options == 3:
+            tui.started('The data visualisation')
+            if (len(records) != 0):
+                # select option form visualisation menu by user input
+                visualisation_option = tui.visualise()
+                # if the user selected the option to visualise the entity type
+                if (visualisation_option == 1):
+                    tui.started("The entity type visualisation process")
+                    planetsList = []
+                    nonPlanetsList = []
+                    # get planet and non-planet entities in records
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if recordDetailList[1] == 'TRUE':
+                            planetsList.append(recordDetailList[0])
+                        if recordDetailList[1] == 'FALSE':
+                            nonPlanetsList.append(recordDetailList[0])
+                    # create dic param category of planet and non-planet entities
+                    category = {
+                        'planets': planetsList,
+                        'non-planets': nonPlanetsList
+                    }
+                    # display planet and non-planet entities by pie
+                    visual.entities_pie(category)
+                    tui.completed('The entity type visualisation process')
+                    # if the user selected the option to visualise the entity gravity
+                if visualisation_option == 2:
+                    tui.started('The entity gravity visualisation process')
+                    # get tuple gravity range by user input
+                    tupleGravityRange = tui.gravity_range()
+                    # get lower, medium and high entities in records
+                    lowerList = []
+                    mediumList = []
+                    highList = []
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if float(recordDetailList[8]) < tupleGravityRange[0]:
+                            lowerList.append(recordDetailList[0])
+                        if float(recordDetailList[8]) >= tupleGravityRange[0] and float(recordDetailList[8]) <= \
+                                tupleGravityRange[1]:
+                            mediumList.append(recordDetailList[0])
+                        if float(recordDetailList[8]) > tupleGravityRange[1]:
+                            highList.append(recordDetailList[0])
+                    # create dic param
+                    category = {
+                        'lower': lowerList,
+                        'medium': mediumList,
+                        'high': highList
+                    }
+                    # display category by bar chart
+                    visual.entities_bar(category)
+                    tui.completed('The entity gravity visualisation process')
+                # if the user selected the option to visualise the orbit summary
+                if visualisation_option == 3:
+                    tui.started('The entity orbit summary visualisation process')
 
+                    # get entities by user input
+                    entityNameList = tui.orbits()
+                    # get name of dict (small , large)
+                    name_of_dict = {}
+                    for entity in entityNameList:  # loop each entity
+                        smallList = []
+                        largeList = []
+                        for record in records:  # find the orbit entity in records and divide into small and large
+                            recordDetailList = record.split(",")
+                            if (recordDetailList[21] == entity):
+                                if (float(recordDetailList[10]) < 100):
+                                    smallList.append(recordDetailList[0])
+                                else:
+                                    largeList.append(recordDetailList[0])
+                        # create orbit entities category
+                        category = {
+                            "small": smallList,
+                            "large": largeList
+                        }
+                        # insert category to name_of_dict param
+                        name_of_dict[entity] = category
+
+                    # display orbit entities by subplot
+                    visual.orbits(name_of_dict)
+                    tui.completed('The entity orbit summary visualisation process')
+
+                # if the user selected the option to animate the planet gravities
+                if visualisation_option == 4:
+                    tui.started('The gravity animation visualisation process')
+                    # get tuple gravity range by user input
+                    tupleGravityRange = tui.gravity_range()
+                    # get lower, medium and high entities in records
+                    lowerList = []
+                    mediumList = []
+                    highList = []
+                    for record in records:
+                        recordDetailList = record.split(",")
+                        if float(recordDetailList[8]) < tupleGravityRange[0]:
+                            lowerList.append(recordDetailList[0])
+                        if float(recordDetailList[8]) >= tupleGravityRange[0] and float(recordDetailList[8]) <= \
+                                tupleGravityRange[1]:
+                            mediumList.append(recordDetailList[0])
+                        if float(recordDetailList[8]) > tupleGravityRange[1]:
+                            highList.append(recordDetailList[0])
+                    # create dic param
+                    category = {
+                        'lower': lowerList,
+                        'medium': mediumList,
+                        'high': highList
+                    }
+                    # display gravity category by animation
+                    visual.gravity_animation(category)
+
+                    tui.completed('The gravity animation visualisation process')
+                tui.completed('The data visualisation')
+            else:
+                print("Records is empty! Please load data")
 
         # Task 28: Check if the user selected the option for saving data.  If so, then do the following:
         # - Use the appropriate function in the module tui to indicate that the save data operation has started.
@@ -320,7 +433,61 @@ def run():
         # a JSON file using in the following order: all the planets in alphabetical order followed by non-planets 
         # in alphabetical order.
         # TODO: Your code here
-
+        if menu_options == 4:
+            tui.started('The save process')
+            # if records is empty
+            if len(records) != 0:
+                # select opion from savemenu by user input
+                saveMenu = tui.save()
+                if (saveMenu == 1):
+                    # create Abstract class
+                    class AbstracterWriter(ABC):
+                        def __init__(self, recordsdata):
+                            self._recordsdata = recordsdata
+                        @abstractmethod
+                        def RecordsToJson(self):
+                            pass
+                    # create inheritance class
+                    class ConcreteWriter(AbstracterWriter):
+                        # the method to write data into json file
+                        def RecordsToJson(self):
+                            # find planed and non-planed entities in records
+                            planetsList = []
+                            nonPlanetsList = []
+                            for record in records:
+                                recordDetailList = record.split(",")
+                                if (recordDetailList[1] == 'TRUE'):
+                                    planetsList.append(recordDetailList[0])
+                                if (recordDetailList[1] == 'FALSE'):
+                                    nonPlanetsList.append(recordDetailList[0])
+                            # sort planetslist and nonplanetlist
+                            planetsList.sort()
+                            nonPlanetsList.sort()
+                            # create sum list of sorted planetslist and nonplanetlist
+                            newRecords = []
+                            # find each planet entity record in records and inset it
+                            for planet in planetsList:
+                                for record in records:
+                                    recordDetailList = record.split(",")
+                                    if recordDetailList[0] == planet:
+                                        newRecords.append(record)
+                            # find each non-planet entity record in records and inset it
+                            for nonplanet in nonPlanetsList:
+                                for record in records:
+                                    recordDetailList = record.split(",")
+                                    if recordDetailList[0] == nonplanet:
+                                        newRecords.append(record)
+                            # convert list to json type
+                            jsondata = json.dumps(newRecords, indent=4, skipkeys=True, sort_keys=True)
+                            with open('data.json', 'w') as jsonfile:
+                                json.dump(newRecords, jsonfile)
+                    writer = ConcreteWriter(records)
+                    writer.RecordsToJson()
+                else:
+                    tui.error('Select a correct menu option.')
+                tui.completed('The save process')
+            else:
+                print("Records is empty! Please load data")
         # Task 29: Check if the user selected the option for exiting.  If so, then do the following:
         # break out of the loop
         # TODO: Your code here

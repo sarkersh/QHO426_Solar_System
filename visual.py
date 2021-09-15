@@ -116,7 +116,7 @@ def entities_bar(categories):
 
 
 
-# entities_bar('categories')
+
 
 
 def orbits(summary):
@@ -137,6 +137,35 @@ def orbits(summary):
     :param summary: A dictionary containing the "small" and "large" entities for each orbited planet.
     :return: Does not return anything
     """
+    i = 0
+    # find max number of "small" and "large" orbiting entities
+    maxNum = -1
+    for orbitedPlanet in summary:
+        smallsize = len(summary[orbitedPlanet]['small'])
+        largesize = len(summary[orbitedPlanet]['large'])
+        if smallsize > maxNum:
+            maxNum = smallsize
+        if largesize > maxNum:
+            maxNum = largesize
+    # create subplot
+    for orbitedPlanet in summary:
+        smallsize = len(summary[orbitedPlanet]['small'])
+        largesize = len(summary[orbitedPlanet]['large'])
+        plt.subplot(1, len(summary), i + 1)
+        i += 1
+        plt.title(orbitedPlanet)
+        X = np.arange(2)
+        totalsize = smallsize + largesize
+        Y = np.array([smallsize, largesize])
+        plt.xticks([])
+        plt.yticks([])
+        plt.ylim(0, maxNum + 10)
+        plt.bar(X, Y, facecolor='#9999ff', edgecolor='white')
+        for x, y, col in zip(X, Y, summary[orbitedPlanet]):
+            plt.text(x + 0.4, y + 0.05, '%.2f' % y, ha='center', va='bottom')
+            plt.text(x + 0.4, 0, col, ha='center', va='top')
+    plt.show()
+
     # X = list(df.iloc[:, 0])
     # Y = list(df.iloc[:, 15])
     #
@@ -155,7 +184,6 @@ def orbits(summary):
     #
     # print(summary["orbited planet"])
 
-orbits('summary')
 def gravity_animation(categories):
     """
     Task 27: Display an animation of "low", "medium" and "high" gravities.
@@ -166,6 +194,67 @@ def gravity_animation(categories):
     :param categories: A dictionary containing "low", "medium" and "high" gravity entities
     :return: Does not return anything
     """
+    le = len(categories)
+    X = np.arange(le)
+    Y = []
+    totalcount = 0
+    for col in categories:
+        lencol = len(categories[col])
+        Y.append(lencol)
+        totalcount += lencol
+
+    lowercount = Y[0]
+    mediumcount = Y[1]
+    highcount = Y[2]
+    Y.sort()
+    maxNum = Y[2]
+
+    plotlays, plotcols = [3, 3, 3], ["black", "black", "black"]
+    lineList = [[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+                [[1, 1, 2, 2, 2, 2, 2, 2, 2, 2], [0, lowercount, lowercount, 0, 0, 0, 0, 0, 0, 0]],
+                [[1, 1, 2, 2, 2, 3, 3, 3, 3, 3], [0, lowercount, lowercount, 0, mediumcount, mediumcount, 0, 0, 0, 0]],
+                [[1, 1, 2, 2, 2, 3, 3, 3, 4, 4],
+                 [0, lowercount, lowercount, 0, mediumcount, mediumcount, 0, highcount, highcount, 0]]]
+    fig = plt.figure()
+    ax = plt.axes(xlim=(0, 5), ylim=(0, maxNum + 30))
+    timetext0 = ax.text(0, 0, '')
+    timetext1 = ax.text(1, lowercount + 3, '')
+    timetext2 = ax.text(2, mediumcount + 3, '')
+    timetext3 = ax.text(3, highcount + 3, '')
+    lines = []
+    for index, lay in enumerate(plotlays):
+        lobj = ax.plot([], [], lw=3, color=plotcols[index])[0]
+        lines.append(lobj)
+
+    def init():
+        for line in lines:
+            line.set_data([], [])
+        return lines
+
+    def animate(i):
+        index = i % 4
+        for lnum, line in enumerate(lines):
+            line.set_data(lineList[index][0], lineList[index][1])
+
+        if index == 0:
+            return tuple(lines) + (timetext0,)
+        if index == 1:
+            strlow = "LowEntities " + str(lowercount)
+            timetext1.set_text(strlow)
+            return tuple(lines) + (timetext1,)
+        if index == 2:
+            strmedium = "MediumEntities " + str(mediumcount)
+            timetext2.set_text(strmedium)
+            return tuple(lines) + (timetext1, timetext2,)
+        if index == 3:
+            strhigh = "HighEntities " + str(highcount)
+            timetext3.set_text(strhigh)
+            return tuple(lines) + (timetext1, timetext2, timetext3,)
+
+    anim = animation.FuncAnimation(fig, animate, init_func=init,
+                                   frames=4, interval=1000, blit=True)
+
+    plt.show()
     # X = list(df.iloc[:, 0])
     # Y = list(df.iloc[:, 8])
     #
@@ -177,22 +266,22 @@ def gravity_animation(categories):
     #
     # # Show the plot
     # plt.show()
+    # Cousin code:
 
-    fig, ax = plt.subplots()
+    # fig, ax = plt.subplots()
+    #
+    # x = categories["low"]
+    # line, = ax.plot("np.sin(x)low", x)
+    #
+    # def init():
+    #     line.set_ydata([np.nan] * len(x))
+    #     return line,
+    #
+    # def animate(i):
+    #     line.set_ydata(np.sin(x + i / 100))
+    #     return line,
+    #
+    # ani = animation.FuncAnimation(
+    #     fig, animate, init_func=init, interval=2, blit=True, save_count=50)
 
-    x = categories["low"]
-    line, = ax.plot("np.sin(x)low", x)
-
-    def init():
-        line.set_ydata([np.nan] * len(x))
-        return line,
-
-    def animate(i):
-        line.set_ydata(np.sin(x + i / 100))
-        return line,
-
-    ani = animation.FuncAnimation(
-        fig, animate, init_func=init, interval=2, blit=True, save_count=50)
-
-gravity_animation('categories')
 
