@@ -248,6 +248,27 @@ def process_type():
         #     ans = None
         # else:
         #     print("\n Not Valid Choice Try again")
+    # Tutor replit:
+    # print("How would you like for the file to be processed?")
+    #
+    # usr = input(
+    #     "\nRetrieve entity\nRetrieve entity details\nCategorise entities by type\nCategorise entities by gravity\nSummarise entitites by orbit\n\nPlease enter your choice as listed: ")
+    #
+    # if (usr == "Retrieve entity"):
+    #     i = 1
+    # elif (usr == "Retrieve entity details"):
+    #     i = 2
+    # elif (usr == "Categorise entities by type"):
+    #     i = 3
+    # elif (usr == "Categorise entitites by gravity"):
+    #     i = 4
+    # elif (usr == "Summarise entities by orbit"):
+    #     i = 5
+    # else:
+    #     print("Invalid input")
+    #     return None
+    #
+    # return i
 
 
 #process_type()
@@ -265,6 +286,9 @@ def entity_name():
     name = input("Please type the name of an entity: ")
     return name
     #print(name)
+    # Tutor Replit:
+    # entity = input("Please enter the name of an entity:\n")
+    # return entity
 
 
 #entity_name()
@@ -297,6 +321,18 @@ def entity_details():
     # # return [a, b]
     # x = a, b
     # print(list(x))
+    # Tutor replit:
+    # entity_n = input("Please enter the name of an entity:\n")
+    # entity_list = input("Please enter a list of integer column indexes: ")
+    #
+    # list = entity_list.split(",")
+    # print("list: ", list)
+    #
+    # compl_l = []
+    # for i in list:
+    #     compl_l.append(int(i))
+    #
+    # return entity_n, compl_l
 
 
 #print(entity_details())
@@ -319,18 +355,6 @@ def list_entity(entity, cols=[]):
     :param cols: A list of integer values that represent column indexes
     :return: does not return anything
     """
-    # Week 8.4 - More Gremlins.txt
-    # def list_entity(entity, cols=[]):
-    #     if len(cols) > 0:
-    #         #list_b = [entity[a] for a in cols]
-    #         list_b = []
-    #         for z in cols:
-    #             list_b.append(entity[z])
-    #         print(list_b)
-    #     else:
-    #         print(entity)
-    #     return
-    # list_entity(['Earth', True, 9.8, 5], [0, 2, 3])
     # TODO: Your code here
     if (len(cols) > 0):
         le = len(entity)
@@ -344,6 +368,18 @@ def list_entity(entity, cols=[]):
     else:
         print(entity)
     return
+    # Week 8.4 - More Gremlins.txt
+    # def list_entity(entity, cols=[]):
+    #     if len(cols) > 0:
+    #         #list_b = [entity[a] for a in cols]
+    #         list_b = []
+    #         for z in cols:
+    #             list_b.append(entity[z])
+    #         print(list_b)
+    #     else:
+    #         print(entity)
+    #     return
+    # list_entity(['Earth', True, 9.8, 5], [0, 2, 3])
 
 #     if len(cols) > 0:
 #         list = [entity[z] for z in cols]
@@ -351,9 +387,23 @@ def list_entity(entity, cols=[]):
 #     else:
 #         print(entity)
 #     return
+#     Tutor replit:
+#     if cols is None:
+#         cols = []
+#     if len(cols) == 0:
+#         print(entity)
+#     else:
+#         print("[", end="")
+#         for i in range(len(cols)):
+#             if i == len(cols) - 1:
+#                 print(f"{entity[cols[i]]}", end="")
+#             print(f"{entity[cols[i]]}", end=",")
+#         print("]")
 #
-#
-#list_entity(['Earth', True, 9.8, 0, 8], [0,5])
+#     return None
+
+
+# list_entity(['Earth', True, 9.8, 0, 8], [0,5])
 
 
 def list_entities(entities, cols=[]):
@@ -385,9 +435,20 @@ def list_entities(entities, cols=[]):
     else:
         print(entities)
     return
+    # Tutor replit:
+    # for list in entities:
+    #     if len(cols) == 0:
+    #         for j in list:
+    #             print(j, end=", ")
+    #         print("\n")
+    #
+    #     else:
+    #         for i in cols:
+    #             print(list[i], end=", ")
+    #     return None
 
 
-#list_entities(['Earth', True, 9.8, 0, 8], [0,1])
+#list_entities(['Earth', True, 9.8, 0, 8], [0, 1])
 
 
 def list_categories(categories):
@@ -403,13 +464,9 @@ def list_categories(categories):
     :return: Does not return anything
     """
     # TODO: Your code here
-    dict = {"fruits": "apple", "shoe": "addidas"}
-    for key, value in dict.items():
+    for key, value in categories.items():
         print(key, ' : ', value)
-
-
-#list_categories("dict")
-
+    # The param 'categories' is a dictionary type called by main.py
 
 def gravity_range():
     """
@@ -422,12 +479,39 @@ def gravity_range():
     :return: a tuple with the lower and upper limits
     """
     # TODO: Your code here
-    t = tuple()
-    n = int(input("Total number of values in tuple:- "))
-    for i in range(n):
-        a = float(input("Enter elements:- "))
-        t = t + (a,)
-    return min(t), max(t)
+    ans = True
+    while(ans):
+        try:
+            minGravity = float(input("lower limit:- "))
+            maxGravity = float(input("upper limit:- "))
+            ans = False
+        except:
+            continue
+    if (minGravity > maxGravity):
+        a = maxGravity
+        maxGravity = minGravity
+        minGravity = a  # (www.youtube.com, n.d.)
+    listGravityRange = [minGravity, maxGravity]
+    tupleGravityRange = tuple(listGravityRange)
+    return tupleGravityRange
+
+
+    # t = tuple()
+    # n = int(input("Total number of values in tuple:- "))
+    # for i in range(n):
+    #     a = float(input("Enter elements:- "))
+    #     t = t + (a,)
+    # return min(t), max(t)
+    # Tutor replit:
+    # list = []
+    # upper_limit = input("Please enter the upper limit for gravity: ")
+    # list.append(upper_limit)
+    #
+    # lower_limit = input("Please enter the lower limit for gravity: ")
+    # list.append(lower_limit)
+    #
+    # tupl = tuple(list)
+    # return tupl
 
 
 # print(gravity_range())
@@ -445,26 +529,29 @@ def orbits():
     :return: a list of entity names
     """
     # TODO: Your code here
-    import csv
-    with open('data\sol_data.csv', 'r') as f1, open('data\sol_data.csv', 'a') as f2:
-        reader = csv.reader(f1)
-        next(reader, None)
-        orbits = [21]
-
-        for row in reader:
-            content = list(row[i] for i in orbits)
-            # print(content)
-
-            # for z in content:
-            #     print(z)
-            # print(content)
-        # x = list(reader)
-        # print(x)
-        writer = csv.writer(f2)
-        next(reader, None)
-        orbits = [21]
-        orbits = [str(cols) for cols in input("Enter a list of entity names : ").split(",")]
-        print(list(orbits, content))
+    entityNames = input('Enter entity names(e.g. Jupiter,Earth,Mars): ')
+    entityNameList = entityNames.split(",")
+    return entityNameList
+    # import csv
+    # with open('data\sol_data.csv', 'r') as f1, open('data\sol_data.csv', 'a') as f2:
+    #     reader = csv.reader(f1)
+    #     next(reader, None)
+    #     orbits = [21]
+    #
+    #     for row in reader:
+    #         content = list(row[i] for i in orbits)
+    #         # print(content)
+    #
+    #         # for z in content:
+    #         #     print(z)
+    #         # print(content)
+    #     # x = list(reader)
+    #     # print(x)
+    #     writer = csv.writer(f2)
+    #     next(reader, None)
+    #     orbits = [21]
+    #     orbits = [str(cols) for cols in input("Enter a list of entity names : ").split(",")]
+    #     print(list(orbits, content))
     # x = input("Enter a list of entity names : ").split(",")
     # return x
     #
@@ -475,9 +562,16 @@ def orbits():
     # x = []
     # x = [str(cols) for cols in input("Enter a list of entity names : ").split(",")]
     # print(x)
+    # Tutor replit:
+    # n = int(input("Please enter the amount of entities that you wish to input: "))
+    # list = []
+    # for i in range(0, n):
+    #     data = input(f"Please enter entity number {i}: ")
+    #     list.append(data)
+    # return list
 
 
-# orbits()
+#print(orbits())
 
 
 def visualise():
@@ -497,31 +591,54 @@ def visualise():
     """
     # TODO: Your code here
     x = 'Visualise Menu'
-    print("\n\t\t", "-" * len(x), x, "-" * len(x))
-    ans = True
-    while ans:
-        print("""
-            How would you like for the data to be visualise\n\t\t(Choose from below e.g.\"Entities by type\")?
-            1.Entities by type
-            2.Entities by gravity
-            3.Summary of orbits
-            4.Animate gravities
-            """)
-        ans = input("\t\tWhat would you like to do?:- ")
-        if ans == "Entities by type":
-            print("\n\t\t1")
-        elif ans == "Entities by gravity":
-            print("\n\t\t2")
-        elif ans == "Summary of orbits":
-            print("\n\t\t3")
-        elif ans == "Animate gravities":
-            print("\n\t\t4")
-            ans = None
+    print("\t\t", "-" * len(x), x, "-" * len(x))
+    # ans = True
+    # while ans:
+    print("""
+        How would you like for the data to be visualise\n\t\t(Choose from below e.g.\"1\")?
+        1.Entities by type
+        2.Entities by gravity
+        3.Summary of orbits
+        4.Animate gravities
+        """)
+    strUserInput = input("\t\tWhat would you like to do?:- ")
+    try:
+        intUserInput = int(strUserInput)
+        if (intUserInput >= 1 and intUserInput <= 4):
+            return intUserInput
         else:
-            print("\n Not Valid Choice Try again")
+            return None
+    except:
+        return None
+
+        # ans = input("\t\tWhat would you like to do?:- ")
+        # if ans == "Entities by type":
+        #     print("\n\t\t1")
+        # elif ans == "Entities by gravity":
+        #     print("\n\t\t2")
+        # elif ans == "Summary of orbits":
+        #     print("\n\t\t3")
+        # elif ans == "Animate gravities":
+        #     print("\n\t\t4")
+        #     ans = None
+        # else:
+        #     print("\n Not Valid Choice Try again")
+    # Tutor replit:
+    # usr_choice = int(input("Please chose how the data should be visualised:\n\n"
+    #                        "1 - Entities by type\n"
+    #                        "2 - Entities by gravity\n"
+    #                        "3 - Summary of orbits\n"
+    #                        "4 - Animate gravities\n"
+    #                        ""
+    #                        "\nPlease enter a number corresponding to your choice: "))
+    # if usr_choice == 1 or usr_choice == 2 or usr_choice == 3 or usr_choice == 4:
+    #     return usr_choice
+    # else:
+    #     print("Invalid choice!")
+    #     return None
 
 
-# visualise()
+#visualise()
 
 
 def save():
@@ -541,17 +658,35 @@ def save():
     # TODO: Your code here
     x = 'Saving Menu'
     print("\n\t\t", "-" * len(x), x, "-" * len(x))
-    ans = True
-    while ans:
-        print("""
-            How would you like for the data to be save\n\t\t(e.g.\"Export as JSON\")?
-            1.Export as JSON
-            """)
-        ans = input("\t\tWhat would you like to do?:- ")
-        if ans == "Export as JSON":
-            print("\n\t\t1"), print("\t\tData Exporting as JSON Started"), print("\t\tData Exporting as JSON Completed")
-            ans = None
+    # ans = True
+    # while ans:
+    print("""
+        How would you like for the data to be save\n\t\t(e.g.\"1\")?
+        1.Export as JSON
+        """)
+    strUserInput = input("\t\tWhat would you like to do?:- ")
+    try:
+        intUserInput = int(strUserInput)
+        if (intUserInput == 1):
+            return intUserInput
         else:
-            print("\n Not Valid Choice Try again")
+            return None
+    except:
+        return None
+    #     ans = input("\t\tWhat would you like to do?:- ")
+    #     if ans == "Export as JSON":
+    #         print("\n\t\t1"), print("\t\tData Exporting as JSON Started"), print("\t\tData Exporting as JSON Completed")
+    #         ans = None
+    #     else:
+    #         print("\n Not Valid Choice Try again")
+    # Tutor replit:
+    # usr = int(input(
+    #     "Please chose an option on how the data should be stored: \n1 - Export as JSON\nPlease enter a number corresponding to your desired choice: "))
+    # if usr == 1:
+    #     return usr
+    #
+    # else:
+    #     print("Invalid choice!")
+    #     return None
 
-# save()
+#print(save())
