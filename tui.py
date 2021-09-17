@@ -305,23 +305,23 @@ def entity_details():
     :return: A list containing the name of an entity and a list of column indexes
     """
     # TODO: Your code here
-    # entityName = input("Enter name of an entity: ")
-    # columnIndexes = input('Enter a list of interger column indexes: ')
-    # strcolumnlist = columnIndexes.split(",")
-    # columnList = []
-    # for column in strcolumnlist:
-    #     try:
-    #         intcol = int(column)
-    #         columnList.append(intcol)
-    #     except:
-    #         continue
-    # return entityName, columnList
-    entityName = input('Enter name of entity: ')
-    columnList = list(map(int, input("Integer columns: ").split(',')))  # (GeeksforGeeks, 2019)
+    entityName = input("Enter name of an entity: ")
+    columnIndexes = input('Enter a list of interger column indexes: ')
+    strcolumnlist = columnIndexes.split(",")
+    columnList = []
+    for column in strcolumnlist:
+        try:
+            intcol = int(column)
+            columnList.append(intcol)
+        except:
+            continue
     return entityName, columnList
+    # entityName = input('Enter name of entity: ')
+    # columnList = list(map(int, input("Integer columns: ").split(',')))  # (GeeksforGeeks, 2019)
+    # return entityName, columnList
     # return [a, b]
     # x = a, b
-    # print(list(x))
+    #print(list(x))
     # Tutor replit:
     # entity_n = input("Please enter the name of an entity:\n")
     # entity_list = input("Please enter a list of integer column indexes: ")

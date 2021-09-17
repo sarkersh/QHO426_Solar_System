@@ -166,7 +166,10 @@ def run():
                 if(process_option == 2):
                     tui.started('The entity details retrieval process')
                     # get entity and cols from user input
-                    specifiedEntity, cols = tui.entity_details()
+                    # specifiedEntity, cols = tui.entity_details()
+                    detailEntities = tui.entity_details()
+                    specifiedEntity = detailEntities[0]
+                    cols = detailEntities[1]
                     # find the entity in records again
                     bFindEntity = False
                     findRecord = []
