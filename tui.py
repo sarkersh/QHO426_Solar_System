@@ -315,13 +315,14 @@ def entity_details():
             columnList.append(intcol)
         except:
             continue
-    return entityName, columnList
+    return [entityName, columnList]
+
     # entityName = input('Enter name of entity: ')
     # columnList = list(map(int, input("Integer columns: ").split(',')))  # (GeeksforGeeks, 2019)
     # return entityName, columnList
     # return [a, b]
-    # x = a, b
-    #print(list(x))
+    # x = entityName, columnList
+    # print(list(x))
     # Tutor replit:
     # entity_n = input("Please enter the name of an entity:\n")
     # entity_list = input("Please enter a list of integer column indexes: ")
