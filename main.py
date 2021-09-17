@@ -182,6 +182,7 @@ def run():
                     # display the entity details in cols
                     if (bFindEntity == True):
                         tui.list_entity(findRecord, cols)
+                        print(list(detailEntities))
                     else:
                         print("The entity does no exist!")
                     tui.completed("The entity details retrieval process")
