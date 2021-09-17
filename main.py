@@ -149,7 +149,7 @@ def run():
                     bFindEntity = False
                     findRecord = []
                     for record in records:
-                        recordDetailList = record.split(",")
+                        recordDetailList = record.strip().split(",")
                         if (recordDetailList[0] == specifiedEntity):
                             bFindEntity = True
                             findRecord = recordDetailList
