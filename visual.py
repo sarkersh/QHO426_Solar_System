@@ -52,16 +52,7 @@ def entities_pie(categories):
     print(Z)
     colors = ['yellowgreen', 'gold']
     explode = [0, 0.1]
-    plt.pie(Z,
-            explode = explode,
-            labels = labels,
-            colors = colors,
-            autopct='%1.1f%%',
-            shadow=True,
-            startangle=90,
-            radius=0.25,
-            center=(0, 0),
-            frame=True)
+    plt.pie(Z, explode = explode, labels = labels, colors = colors, autopct='%1.1f%%', shadow=True, startangle=90, radius=0.25, center=(0, 0), frame=True)
     plt.xticks([]), plt.yticks([])
     plt.title("entities_pie")
     plt.show()
