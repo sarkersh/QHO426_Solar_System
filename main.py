@@ -154,14 +154,14 @@ def run():
                             bFindEntity = True
                             findRecord = recordDetailList
                             break
-                        # display the record including user entity
-                        if (bFindEntity == True):
-                            cols = []
-                            tui.list_entity(findRecord, cols)
-                        else:
-                            print("The entity does not exist!")
-                        # Complete message
-                        tui.completed("The entity retrieval process")
+                    # display the record including user entity
+                    if (bFindEntity == True):
+                        cols = []
+                        tui.list_entity(findRecord, cols)
+                    else:
+                        print("The entity does not exist!")
+                    # Complete message
+                    tui.completed("The entity retrieval process")
                 # If the user selected the option to retrieve an entity's details
                 if(process_option == 2):
                     tui.started('The entity details retrieval process')
