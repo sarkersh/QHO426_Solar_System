@@ -329,6 +329,8 @@ def run():
                             planetsList.append(recordDetailList[0])
                         if recordDetailList[1] == 'FALSE':
                             nonPlanetsList.append(recordDetailList[0])
+                    # print(nonPlanetsList)
+                    # print(planetsList)
                     # create dic param category of planet and non-planet entities
                     category = {
                         'planets': planetsList,

@@ -48,13 +48,14 @@ def entities_pie(categories):
         Z.append(lencol)
         labels.append(col)
         totalcount += lencol
+    # print(lencol)
     Z = np.array(Z)
-    print(Z)
+    # print(Z)
     colors = ['yellowgreen', 'gold']
     explode = [0, 0.1]
     plt.pie(Z, explode = explode, labels = labels, colors = colors, autopct='%1.1f%%', shadow=True, startangle=90, radius=0.25, center=(0, 0), frame=True)
     plt.xticks([]), plt.yticks([])
-    plt.title("entities_pie")
+    plt.title("Displaying pie charts for planets and Non Panets", fontsize=8)
     plt.show()
 
 
