@@ -201,7 +201,7 @@ def gravity_animation(categories):
     Y.sort()
     maxNum = Y[2]
 
-    plotlays, plotcols = [3, 3, 3], ["black", "black", "black"]
+    plotlays, plotcols = [3, 3, 3], ["black", "black", "red"]
     lineList = [[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
                 [[1, 1, 2, 2, 2, 2, 2, 2, 2, 2], [0, lowercount, lowercount, 0, 0, 0, 0, 0, 0, 0]],
                 [[1, 1, 2, 2, 2, 3, 3, 3, 3, 3], [0, lowercount, lowercount, 0, mediumcount, mediumcount, 0, 0, 0, 0]],
@@ -217,6 +217,10 @@ def gravity_animation(categories):
     for index, lay in enumerate(plotlays):
         lobj = ax.plot([], [], lw=3, color=plotcols[index])[0]
         lines.append(lobj)
+
+    plt.title("Animate gravities")
+    plt.xlabel("Entity name")
+    plt.ylabel("Gravity")
 
     def init():
         for line in lines:
