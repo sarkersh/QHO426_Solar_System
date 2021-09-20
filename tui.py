@@ -10,6 +10,7 @@ def welcome():
     """
     # TODO: Your code here
     x = 'Solar Record Management System'
+    # print of 30 dashes before and after
     print("-" * 30, x, "-" * 30)
 
 
@@ -31,6 +32,7 @@ def menu():
     # ans = True
     # while ans:
     x = 'Main Menu'
+    # print of length of x dashes before and after
     print("-" * len(x), x, "-" * len(x))
     print("""
     1.Load Data
@@ -40,6 +42,7 @@ def menu():
     5.Exit
     """)
     strUserInput = input("\t\tWhat would you like to do?: ")
+    # it will run as input value arrange is 1 to 5
     try:
         intUserInput = int(strUserInput)
         if (intUserInput >= 1 and intUserInput <= 5):
@@ -103,6 +106,7 @@ def started(operation):
     :return: Does not return anything
     """
     # TODO: Your code here
+    # to used notification word of starting
     print(f"{operation} has started.")
 
 
@@ -119,6 +123,7 @@ def completed(operation):
     :return: Does not return anything
     """
     # TODO: Your code here
+    # to used notification of end of project
     print(f'{operation} has completed.')
 
 
@@ -135,6 +140,7 @@ def error(error_msg):
     :return: Does not return anything
     """
     # TODO: Your code here
+    # to used notificaton of have a error
     print(f'Error! {error_msg}.')
 
 
@@ -156,8 +162,10 @@ def source_data_path():
     # import pathlib, os
     #import os
     # user_input = input("Please enter the file path: ")
+    # to used enter file name with csv extension
     filepath = input("Please enter the file path: ")
-    if (filepath.endswith("csv")):
+    # detection of file name have a csv extension
+    if filepath.endswith("csv"):
         return filepath
     else:
         error("The file entered is not csv file!")
