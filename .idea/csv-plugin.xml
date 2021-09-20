@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="2\data\sol_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="D:\Backup\QHO426\QHO426\Data\Work\Lib\site-packages\numpy\core\tests\data\umath-validation-set-cos.csv">
           <value>
             <Attribute>
