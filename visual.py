@@ -1,8 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
-# import pandas as pd
-# df = pd.read_csv('data\sol_data.csv')
+
 
 
 def entities_pie(categories):
@@ -14,31 +13,7 @@ def entities_pie(categories):
     :param categories: A dictionary with planets and non-planets
     :return: Does not return anything
     """
-    # data_pie = df['isPlanet'].value_counts().rename_axis('planet').reset_index(name='planet_count')
-    #
-    # # Creating plot
-    # fig = plt.figure(figsize=(10, 7))
-    # plt.pie(data_pie.planet_count, labels=data_pie)
-    #
-    # # show plot
-    # plt.show()
 
-    # a = ['Planet', 'Non-Planet']
-    # b = [20, 50]
-    # plt.pie(b, labels=a)
-    # plt.title("Displaying pie charts for planets and Non Panets", fontsize=16)
-    # plt.show()
-
-    # Tutor replit:
-    # z = []
-    # label = []
-    #
-    # for i in categories:
-    #     label += [i]
-    #     z += [len(categories[i])]
-    #
-    # plt.pie(z, labels=label)
-    # plt.show()
     n = len(categories)
     Z = []
     labels = []
@@ -95,26 +70,6 @@ def entities_bar(categories):
     # used to add tile inside plot.
     plt.title("Entities bar")
     plt.show()
-    # X = list(df.iloc[:, 0])
-    # Y = list(df.iloc[:, 8])
-    # plt.bar(X, Y, color='g')
-    # plt.title("Gravity plot")
-    # plt.xlabel("Names of planets")
-    # plt.ylabel("Gravity")
-    #
-    # # Show the plot
-    # plt.show()
-    # Tutor replit:
-#     label = []
-#     z = []
-#
-#     for i in categories:
-#         label += [i]
-#         z += [len(categories[i])]
-#     plt.bar(label, z)
-#     plt.show()
-
-
 
 
 
@@ -171,23 +126,6 @@ def orbits(summary):
             plt.text(x + 0.4, 0, col, ha='center', va='top')
     plt.show()
 
-    # X = list(df.iloc[:, 0])
-    # Y = list(df.iloc[:, 15])
-    #
-    # # Plot the data using bar() method
-    # plt.bar(X, Y, color='g')
-    # plt.title("orbit")
-    # plt.xlabel("entity name")
-    # plt.ylabel("sideralOrbit")
-    #
-    # # Show the plot
-    # plt.show()
-    # lst1 = summary["orbited planet"]["small"]
-    # lst2 = summary["orbited planet"]["large"]
-    # plt.text("small", len(lst1))
-    # plt.text("large", len(lst2))
-    #
-    # print(summary["orbited planet"])
 
 def gravity_animation(categories):
     """
@@ -277,33 +215,3 @@ def gravity_animation(categories):
                                    frames=4, interval=1000, blit=True)
 
     plt.show()
-    # X = list(df.iloc[:, 0])
-    # Y = list(df.iloc[:, 8])
-    #
-    # # Plot the data using bar() method
-    # plt.plot(X, Y, color='g')
-    # plt.title("gravity")
-    # plt.xlabel("entity name")
-    # plt.ylabel("gravity")
-    #
-    # # Show the plot
-    # plt.show()
-    # Cousin code:
-
-    # fig, ax = plt.subplots()
-    #
-    # x = categories["low"]
-    # line, = ax.plot("np.sin(x)low", x)
-    #
-    # def init():
-    #     line.set_ydata([np.nan] * len(x))
-    #     return line,
-    #
-    # def animate(i):
-    #     line.set_ydata(np.sin(x + i / 100))
-    #     return line,
-    #
-    # ani = animation.FuncAnimation(
-    #     fig, animate, init_func=init, interval=2, blit=True, save_count=50)
-
-
