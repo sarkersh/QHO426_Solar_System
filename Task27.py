@@ -69,7 +69,7 @@ lines = []
 for index, lay in enumerate(plotlays):
     lobj = ax.plot([], [], lw=3, color=plotcols[index])[0]
     lines.append(lobj)
-print(index, lay)
+# print(index, lay)
 def init():
     for line in lines:
         line.set_data([], [])
