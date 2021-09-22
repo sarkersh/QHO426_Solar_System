@@ -11,6 +11,7 @@ import json
 # TODO: Your code here
 records = []
 
+
 def run():
     # Task 19: Call the function welcome of the module tui.
     # This will display our welcome message when the program is executed.
@@ -44,7 +45,7 @@ def run():
             filepath = tui.source_data_path()
             # Load data to records
             if (filepath != None):
-                try:    # If doesn't exist
+                try:  # If doesn't exist
                     f = open(filepath)
                     firstline = False
                     for line in f:
@@ -136,7 +137,7 @@ def run():
         #       - Use the appropriate function in the module tui to indicate that the orbit summary process has
         #       completed.
         # TODO: Your code here
-        if(menu_options == 2):
+        if (menu_options == 2):
             tui.started("The data processing")
             # If records is empty
             if (len(records) != 0):
@@ -163,7 +164,7 @@ def run():
                     # Complete message
                     tui.completed("The entity retrieval process")
                 # If the user selected the option to retrieve an entity's details
-                if(process_option == 2):
+                if (process_option == 2):
                     tui.started('The entity details retrieval process')
                     # get entity and cols from user input
                     # specifiedEntity, cols = tui.entity_details()
@@ -182,7 +183,7 @@ def run():
                     # display the entity details in cols
                     if (bFindEntity == True):
                         tui.list_entity(findRecord, cols)
-                        #print(list(detailEntities))
+                        # print(list(detailEntities))
                     else:
                         print("The entity does no exist!")
                     tui.completed("The entity details retrieval process")
@@ -450,11 +451,16 @@ def run():
                     class AbstracterWriter(ABC):
                         def __init__(self, recordsdata):
                             self._recordsdata = recordsdata
+
                         @abstractmethod
                         def RecordsToJson(self):
                             pass
+
                     # create inheritance class
                     class ConcreteWriter(AbstracterWriter):
+                        def __init__(self, recordsdata):
+                            super().__init__(self)
+
                         # the method to write data into json file
                         def RecordsToJson(self):
                             # find planed and non-planed entities in records
@@ -487,6 +493,7 @@ def run():
                             jsondata = json.dumps(newRecords, indent=4, skipkeys=True, sort_keys=True)
                             with open('data.json', 'w') as jsonfile:
                                 json.dump(newRecords, jsonfile)
+
                     writer = ConcreteWriter(records)
                     writer.RecordsToJson()
                 else:
