@@ -326,7 +326,6 @@ def entity_details():
     # Tutor replit:
     # entity_n = input("Please enter the name of an entity:\n")
     # entity_list = input("Please enter a list of integer column indexes: ")
-    #
     # list = entity_list.split(",")
     # print("list: ", list)
     #
