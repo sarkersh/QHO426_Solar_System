@@ -53,6 +53,7 @@ for orbitedPlanet in name_of_dict:
     X = np.arange(2)
     totalsize = smallsize + largesize
     Y = np.array([smallsize, largesize])
+    print(Y)
     plt.xticks([])
     plt.yticks([])
     plt.ylim(0, maxNum + 10)
