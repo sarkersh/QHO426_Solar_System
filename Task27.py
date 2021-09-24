@@ -28,9 +28,9 @@ for record in records:
         mediumList.append(recordDetailList[0])
     if float(recordDetailList[8]) > tupleGravityRange[1]:
         highList.append(recordDetailList[0])
-print(lowerList)
-print(mediumList)
-print(highList)
+# print(lowerList)
+# print(mediumList)
+# print(highList)
 # create dic param
 categories = {
     'lower': lowerList,
@@ -39,6 +39,7 @@ categories = {
 }
 # display gravity category by animation
 le = len(categories)
+print(le)
 X = np.arange(le)
 Y = []
 totalcount = 0
@@ -46,6 +47,7 @@ for col in categories:
     lencol = len(categories[col])
     Y.append(lencol)
     totalcount += lencol
+#print(lencol)
 
 lowercount = Y[0]
 mediumcount = Y[1]
@@ -59,6 +61,10 @@ lineList = [[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
             [[1, 1, 2, 2, 2, 3, 3, 3, 3, 3], [0, lowercount, lowercount, 0, mediumcount, mediumcount, 0, 0, 0, 0]],
             [[1, 1, 2, 2, 2, 3, 3, 3, 4, 4],
              [0, lowercount, lowercount, 0, mediumcount, mediumcount, 0, highcount, highcount, 0]]]
+"""main type is [0,lowercount,lowercount,0,mediumcount, mediumcount,0,highcount,highcount,0]
+but data exsit only basic and lower value then remove medium and high
+so make a 4 cases ~ empty data, lower data exist case ~ first case is empty data ~ second case is empty and lower value
+third case is empty, lower value and medium data ~ and fourth case is all data exist"""
 fig = plt.figure()
 ax = plt.axes(xlim=(0, 5), ylim=(0, maxNum + 30))
 timetext0 = ax.text(0, 0, '')
@@ -69,7 +75,7 @@ lines = []
 for index, lay in enumerate(plotlays):
     lobj = ax.plot([], [], lw=3, color=plotcols[index])[0]
     lines.append(lobj)
-# print(index, lay)
+print(index, lay)
 def init():
     for line in lines:
         line.set_data([], [])
