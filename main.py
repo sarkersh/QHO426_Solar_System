@@ -489,7 +489,7 @@ def run():
                                     recordDetailList = record.split(",")
                                     if recordDetailList[0] == nonplanet:
                                         newRecords.append(record)
-                            #print(newRecords)
+                            # print(newRecords)
                             # convert list to json type
                             # jsondata = json.dumps(newRecords, indent=4, skipkeys=True, sort_keys=True)
                             # print(jsondata)
@@ -502,12 +502,13 @@ def run():
                                 jsondata += strrecord
                             jsondata = jsondata[0:-3]
                             jsondata += '\n]'
-                            #print(jsondata)
+                            # print(jsondata)
                             # write Json data to out.json file
                             outJSONFileName = 'out.json'
                             fd = open(outJSONFileName, 'w')
                             fd.write(jsondata)
                             fd.close()
+
                     writer = ConcreteWriter(records)
                     writer.RecordsToJson()
                 else:
