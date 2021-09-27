@@ -83,8 +83,8 @@ def entities_bar(categories):
         Y.append(lencol)
         totalcount += lencol
     # each coorodinate plot
-    plt.xticks([])
-    plt.yticks([])
+    # plt.xticks([])
+    # plt.yticks([])
     # whole entity value plot
     plt.bar(X, Y, facecolor='#9999ff', edgecolor='white')
     count = 0

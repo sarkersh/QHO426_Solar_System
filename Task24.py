@@ -31,9 +31,9 @@ for col in categories:
     lencol = float(len(categories[col]))
     print(lencol)
     Z.append(lencol)
-    #print(lencol)
+    # print(lencol)
     labels.append(col)
-    #print(labels)
+    # print(labels)
     totalcount += lencol
 # print(lencol)
 # print(Z)
@@ -41,7 +41,8 @@ Z = np.array(Z)
 # print(Z)
 colors = ['yellowgreen', 'gold']
 explode = [0, 0.1]
-plt.pie(Z, explode = explode, labels = labels, colors = colors, autopct='%1.1f%%', shadow=True, startangle=90, radius=0.35, center=(0, 0), frame=True)
+plt.pie(Z, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90, radius=0.35,
+        center=(0, 0), frame=True)
 plt.xticks([]), plt.yticks([])
 plt.title("Displaying pie charts for planets and Non Planets", fontsize=8)
-#plt.show()
+plt.show()

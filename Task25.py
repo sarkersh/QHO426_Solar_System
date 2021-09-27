@@ -43,8 +43,8 @@ for col in categories:
     Y.append(lencol)
     totalcount += lencol
 
-# plt.xticks([])
-# plt.yticks([])
+plt.xticks([])
+plt.yticks([])
 plt.bar(X, Y, facecolor='#9999ff', edgecolor='r')
 count = 0
 for x, y, col in zip(X, Y, categories):
