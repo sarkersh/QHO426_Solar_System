@@ -27,6 +27,7 @@ n = len(categories)
 Z = []
 labels = []
 totalcount = 0
+# to used categories convert to array list and calculate total count
 for col in categories:
     lencol = float(len(categories[col]))
     print(lencol)
@@ -35,14 +36,16 @@ for col in categories:
     labels.append(col)
     # print(labels)
     totalcount += lencol
-# print(lencol)
+print(totalcount)
 # print(Z)
 Z = np.array(Z)
 # print(Z)
+# to set colors
 colors = ['yellowgreen', 'gold']
 explode = [0, 0.1]
-plt.pie(Z, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90, radius=0.35,
-        center=(0, 0), frame=True)
+#plot pie chart with labels and colors, set radius
+plt.pie(Z, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90, radius=0.3,
+        center=(0.5, 0.5), frame=True)
 plt.xticks([]), plt.yticks([])
 plt.title("Displaying pie charts for planets and Non Planets", fontsize=8)
 plt.show()
