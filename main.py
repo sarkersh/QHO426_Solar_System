@@ -459,7 +459,7 @@ def run():
                     # create inheritance class
                     class ConcreteWriter(AbstracterWriter):
                         def __init__(self, recordsdata):
-                            super().__init__(self)
+                            super().__init__(recordsdata)
 
                         # the method to write data into json file
                         def RecordsToJson(self):
