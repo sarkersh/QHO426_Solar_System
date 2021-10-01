@@ -5,5 +5,10 @@
     <orderEntry type="jdk" jdkName="Python 3.9 (QHO426_Solar_System)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="AE1-Exam" />
+    <orderEntry type="module" module-name="Data" />
+    <orderEntry type="module" module-name="qho426-new" />
+    <orderEntry type="module" module-name="Pokemon_Project" />
+    <orderEntry type="module" module-name="Geeks for geeks" />
+    <orderEntry type="module" module-name="QHO426_Solar_System2" />
   </component>
 </module>
